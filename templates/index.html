@@ -1,0 +1,347 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<!-- Mobile Specific Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Always force latest IE rendering engine -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<meta name="description" content="Django is a responsive creative template">
+	<meta name="keywords" content="portfolio, personal, corporate, business, parallax, creative, agency">
+
+	<!-- Title -->
+	<title>Md Iqbal's website</title>
+
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Raleway:100,400,600,700,900" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Norican" rel="stylesheet">
+
+	<!-- Font awesome Core CSS -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css' />
+
+
+	<!-- bootstrap css -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- magnific-popup CSS -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css' />
+
+	<!-- owl carousel CSS -->
+	<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.css' />
+
+
+	<!-- Custom style CSS -->
+	<link rel='stylesheet' href="{% static 'css/style.css' %}" />
+
+	<!-- responsive CSS -->
+	<link rel='stylesheet' href="{% static 'css/responsive.css' %}" />
+
+	<!--[if lt IE 9]-->
+	<script src='{% static "js/html5shiv.min.js" %}'></script>
+	<!--[endif]-->
+</head>
+
+<body>
+
+	<!-- ====== Preloader ======  -->
+	<div class="loading">
+		<div class="spinner">
+			<div class="rect1"></div>
+			<div class="rect2"></div>
+			<div class="rect3"></div>
+			<div class="rect4"></div>
+			<div class="rect5"></div>
+		</div>
+	</div>
+	<!-- ======End Preloader ======  -->
+
+	<main>
+
+		<!-- ====== Navgition ======  -->
+		<nav class="navbar">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+
+				<!-- Collect the nav links, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+					<!-- links -->
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#home" class="active">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#services">Services</a></li>
+						<li><a href="#skill">Skill</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container -->
+		</nav>
+		<!-- ====== End Navgition ======  -->
+
+		<!-- ====== Header ======  -->
+		<header id="home" class="header" data-stellar-background-ratio="0.5">
+			<!-- header content -->
+			<div class="caption v-middle text-center">
+				<h3>I Am ,</h3>
+				<h1>{{ portfolio.name }}</h1>
+				<h4>I'm A Django Developer </h4>
+			</div>
+
+			<div class="button-scroll" data-scrollTo="about"><span></span></div>
+		</header>
+		<!-- ====== End Header ======  -->
+
+		<!-- ====== hero ======  -->
+		<section id="about" class="hero section-padding">
+			<div class="container">
+
+				<div class="row">
+
+					<!-- hero block -->
+					<div class="hero-block">
+
+						<!-- hero image -->
+						<div class="col-md-4">
+							<div class="hero-img mb-50">
+								<img src="{{ portfolio.image.url }}" alt="image">
+							</div>
+							<a class="btn btn-danger" href="{% static 'pdf/CV_of_Md_Iqbal.pdf' %}"><span><i class="fa fa-download"
+										aria-hidden="true"></i></span> Resume</a>
+							<a class="btn btn-danger" href="mailto:sayeediqbal.bd@gmail.com">Hire Me</a>
+						</div>
+
+						<div class="col-md-offset-1 col-md-6">
+							<div class="hero-item">
+								<h5 class="mb-20">I Am back-end web developer</h5>
+								<p class="mb-20">{{ portfolio.description }}</p>
+								<h5 class="mb-20">Co-Curricular Activity</h5>
+								{% for activity in CoCurricular_activities %}
+								<b>
+									<p class="mt-20">{{ activity.activity_name }}</p>
+								</b>
+								<p><b>Description: </b>{{ activity.description }}</p>
+								<p><b>Position: </b>{{ activity.position }}</p>
+								{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="clear-fix"></div>
+
+			<!-- services -->
+			<div id="services" class="services section-padding">
+				<div class="container">
+
+					<!-- section header -->
+					<div class="section-head text-center">
+						<h5 class="tit">I am expert at ...</h5>
+					</div>
+
+					<div class="row">
+
+						<!-- services items -->
+						<div class="serv-row">
+							<div class="col-md-4">
+								<div class="serv-item">
+									<span>01</span>
+									<h6>Back-end Development</h6>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="serv-item">
+									<span>02</span>
+									<h6>Error Handaling of Django Web Site</h6>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+							</div>
+
+							<div class="col-md-4">
+								<div class="serv-item">
+									<span>03</span>
+									<h6>Database</h6>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<section id="skill" class="portfolio section-padding">
+				<div class="container">
+					<div class="section-head text-center">
+						<h5 class="tit">Skill .</h5>
+					</div>
+					<div class="row">
+
+						<!-- skills -->
+						<div class="skills">
+
+							{% for skill in skills %}
+							<div class="col-md-6">
+								<div class="hero-progress">
+									<div class="progress-item">
+										<p>{{ skill.title }} <span class="pull-right">{{ skill.expert_level }}%</span>
+										</p>
+										<div class="progress-main"><span class="progress-bar"
+												data-value="{{ skill.expert_level }}%"
+												style="width: {% widthratio skill.expert_level 100 100 %}%;"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							{% endfor %}
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- ====== End hero ======  -->
+
+			<!--====== projects ======-->
+			<section id="projects" class="clients section-padding">
+				<div class="container">
+					<div id="services" class="services section-padding">
+						<div class="container">
+
+							<!-- section header -->
+							<div class="section-head text-center">
+								<h5 class="tit">My Projects are ...</h5>
+							</div>
+							<div class="serv-row">
+
+								<div class="row">
+									{% for project in projects %}
+									<div class="col-md-4" style="margin: 15px 0px !important;">
+										<div class="serv-item">
+											<span>{{ project.id }}</span>
+											<h6>{{ project.title }}</h6>
+											<p><a href="{{ project.git_link }}">Visit ___ {{ project.title }} ___</a>
+											</p>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--====== End projects ======-->
+
+			<!--====== Contact ======-->
+			<section id="contact" class="contact section-padding">
+
+				<!-- section header -->
+				<div class="section-head text-center">
+					<h5 class="tit">Say Hello .</h5>
+				</div>
+
+				<!-- form -->
+				<div class="main-form">
+					<div class="container">
+						<div class="row">
+							<!-- contact form -->
+							<div class="col-md-offset-2 col-md-8">
+								<form method="POST">
+									{% csrf_token %}
+									{{ form|crispy }}
+									<input type="submit" class="btn btn-warning form-control-lg" id="large-pill-input" value="Send Message">
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--====== End Contact ======-->
+
+	</main>
+
+	<!--====== Footer ======-->
+	<footer>
+		<div class="container">
+
+			<div class="social-icon">
+				<span><i class="fa fa-facebook" aria-hidden="true"></i></span>
+				<span><i class="fa fa-twitter" aria-hidden="true"></i></span>
+				<span><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+				<span><i class="fa fa-github" aria-hidden="true"></i></span>
+			</div>
+
+			<p>Copy Right &copy; By Md Iqbal | All Right Reserved.</p>
+		</div>
+	</footer>
+	<!--====== End Footer ======-->
+
+
+
+	<!--====== js ======-->
+
+	<!-- jQuery -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js"></script>
+
+	<!-- bootstrap -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<!-- singlePageNav -->
+	<script
+		src='{% static "" %}js/ebce443b62587282a6a7a525fd45a44cd05f49ef/layout-1/js/jquery.singlepagenav.min.js'></script>
+
+	<!-- magnific-popup -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js'></script>
+
+	<!-- owl carousel -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js'></script>
+
+	<!-- stellar js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/stellar.js/0.6.2/jquery.stellar.min.js'></script>
+
+	<!-- jquery.waypoints.min js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js'></script>
+
+	<!-- jquery.counterup.min js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js'></script>
+
+	<!-- typed js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js'></script>
+
+	<!-- isotope.pkgd.min js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js'></script>
+
+	<!-- validator js -->
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/validator/13.6.0/validator.min.js'></script>
+
+	<!-- custom js -->
+	<script src='{% static "js/custom.js" %}'></script>
+
+</body>
+
+<!-- Mirrored from django.netlify.app/demo-1 by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 21 Apr 2021 20:09:02 GMT -->
+
+</html>
